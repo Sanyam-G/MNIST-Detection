@@ -12,15 +12,32 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Hyperparameters
 batch_size = 64
 learning_rate = 0.001
-num_epochs = 5
+num_epochs = 20
 
 # MNIST dataset and data loaders
 transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize((0.5,), (0.5,))
 ])
-train_dataset = torchvision.datasets.MNIST(root='./data', train=True, download=True, transform=transform)
-test_dataset = torchvision.datasets.MNIST(root='./data', train=False, download=True, transform=transform)
+
+# Augmentations for the training set
+train_transform = transforms.Compose([
+    transforms.RandomRotation(10),           # rotate images up to 10 degrees
+    transforms.RandomAffine(0, translate=(0.1, 0.1)),  # random shift
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
+# Keep the test set simpler (no augmentation)
+test_transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,), (0.5,))
+])
+
+train_dataset = torchvision.datasets.MNIST(root='./data', train=True,
+                                           download=True, transform=train_transform)
+test_dataset  = torchvision.datasets.MNIST(root='./data', train=False,
+                                           download=True, transform=test_transform)
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
