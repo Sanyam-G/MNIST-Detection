@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --light-bg: #f8f9fa; /* Very light gray/off-white */
+    --card-bg: #ffffff; /* Pure white */
+    --text-color: #343a40; /* Dark gray for text */
+    --border-color: #dee2e6; /* Light gray for borders */
+    --primary-pale: #e0f2f7; /* Very pale blue */
+    --secondary-pale: #e6f7e0; /* Very pale green */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    padding: 30px;
+    max-width: 900px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Even softer shadow */
+}
+
+.card-header {
+    background-color: var(--primary-pale);
+    color: var(--text-color);
+    font-weight: 400;
+    border-bottom: 1px solid var(--border-color);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 15px;
+}
+
+.canvas-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#drawCanvas {
+    display: block;
+    background-color: black; /* Canvas background remains black for drawing contrast */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Bootstrap default red */
+    border-color: #dc3545;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+#mainPrediction {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    transition: all 0.2s ease-out;
+}
+
+#top3Predictions li {
+    font-size: 1.1rem;
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+#top3Predictions li:last-child {
+    border-bottom: none;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
