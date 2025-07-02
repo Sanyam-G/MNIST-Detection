@@ -14,7 +14,7 @@ This project is a deployable web application that recognizes handwritten digits 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/handwritten-digit-recognition.git
+   git clone (https://github.com/Sanyam-G/MNIST-Detection)
    cd handwritten-digit-recognition
    ```
    
